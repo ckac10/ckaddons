@@ -13,19 +13,19 @@
 		"issues": "https://github.com/ckac10/ckaddons/issues"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
-	"environment": "*",
+	"icon": "assets/ckaddons/icon.png",
+	"environment": "client",
 	"entrypoints": {
 		"client": [
-			"com.example.client.MainClass"
+			"com.ckac10.ckaddons.MainClass"
 		],
 		"modmenu": [
-			"com.example.client.ModMenuIntegration"
+			"com.ckac10.ckaddons.ModMenuIntegration"
 		]
 	},
 	"mixins": [
 		{
-			"config": "modid.client.mixins.json",
+			"config": "ckaddons.client.mixins.json",
 			"environment": "client"
 		}
 	],
