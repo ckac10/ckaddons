@@ -1,15 +1,16 @@
 {
 	"schemaVersion": 1,
 	"id": "ckaddons",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"name": "ckaddons DR",
-	"description": "Dungeon Realms stamina bar and fullbright by grok",
+	"description": "Dungeon Realms QoL Features",
 	"authors": [
 		"ckac10"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/ckac10/ckaddons",
+		"sources": "https://github.com/ckac10/ckaddons",
+		"issues": "https://github.com/ckac10/ckaddons/issues"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/modid/icon.png",
@@ -17,6 +18,9 @@
 	"entrypoints": {
 		"client": [
 			"com.example.client.MainClass"
+		],
+		"modmenu": [
+			"com.example.client.ModMenuIntegration"
 		]
 	},
 	"mixins": [
@@ -30,5 +34,9 @@
 		"minecraft": "~26.3",
 		"java": ">=25",
 		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": "*",
+		"yet_another_config_lib_v3": "*"
 	}
 }
