@@ -61,7 +61,7 @@ final class YaclConfigScreen {
 		Option<Integer> staminaCombatTime = Option.<Integer>createBuilder()
 				.name(Component.literal("Combat time"))
 				.description(OptionDescription.of(Component.literal(
-						"How many seconds after taking damage you count as in combat (the bar stays visible).")))
+						"How many seconds after taking damage or hitting an entity you count as in combat (the bar stays visible).")))
 				.binding(defaults.staminaCombatTime, () -> config.staminaCombatTime, v -> config.staminaCombatTime = v)
 				.controller(opt -> IntegerSliderControllerBuilder.create(opt)
 						.range(1, 15).step(1)
@@ -72,7 +72,7 @@ final class YaclConfigScreen {
 		Option<Boolean> staminaHideOutOfCombat = Option.<Boolean>createBuilder()
 				.name(Component.literal("Hide bar out of combat"))
 				.description(OptionDescription.of(Component.literal(
-						"The energy bar only shows if you took damage in the last few seconds (Combat time); "
+						"The energy bar only shows if you took damage or hit an entity in the last few seconds (Combat time); "
 								+ "otherwise it is hidden.")))
 				.binding(defaults.staminaHideOutOfCombat, () -> config.staminaHideOutOfCombat, v -> config.staminaHideOutOfCombat = v)
 				.controller(TickBoxControllerBuilder::create)

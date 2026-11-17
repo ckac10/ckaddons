@@ -2,12 +2,14 @@ package com.ckac10.ckaddons;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.resources.Identifier;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionResult;
 
 public class StaminaCrosshairRenderer {
 
@@ -21,7 +23,7 @@ public class StaminaCrosshairRenderer {
     private static final int COLOR_BAR = 0x00E87A; // verde
     private static final int COLOR_BG  = 0x000000; // preto
 
-    // Hide bar out of combat: última vez (ms) que o player tomou dano
+    // Hide bar out of combat: última vez (ms) que o player tomou dano ou bateu em alguma entidade
     private static long lastDamageMs = Long.MIN_VALUE;
     private static LocalPlayer trackedPlayer;
     private static float lastHealth;
@@ -32,6 +34,14 @@ public class StaminaCrosshairRenderer {
         HudElementRegistry.addLast(id, StaminaCrosshairRenderer::render);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> trackDamage(client.player));
+
+        // Bater em qualquer entidade também conta como combate (o evento roda no cliente ao atacar)
+        AttackEntityCallback.EVENT.register((player, level, hand, entity, hitResult) -> {
+            if (level.isClientSide() && player == Minecraft.getInstance().player) {
+                lastDamageMs = System.currentTimeMillis();
+            }
+            return InteractionResult.PASS;
+        });
     }
 
     private static void render(GuiGraphicsExtractor graphics, DeltaTracker deltaTracker) {

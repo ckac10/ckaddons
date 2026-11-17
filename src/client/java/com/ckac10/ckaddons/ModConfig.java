@@ -23,7 +23,7 @@ public class ModConfig {
 	public int rarityOpacity = 70;  // 0 a 100 (%)
 	public boolean staminaCrosshair = true;
 	public int staminaOpacity = 50; // 0 a 100 (%)
-	public boolean staminaHideOutOfCombat = false; // só mostra a barra se tomou dano nos últimos segundos
+	public boolean staminaHideOutOfCombat = false; // só mostra a barra se tomou dano ou bateu em algo nos últimos segundos
 	public int staminaCombatTime = 5; // 1 a 15 (segundos)
 	public boolean highlightBeacons = true; // brilho azul (só no cliente) nos end crystals
 	public boolean toolExpDisplay = false; // barra de exp da picareta/fishing spear no nome do item selecionado

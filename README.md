@@ -14,7 +14,7 @@ Open the config with `/ckaddons` or from Mod Menu.
 
 **Energy Bar Render**
 - Energy bar on crosshair, with an opacity slider
-- Hide bar out of combat: the bar only shows after you take damage (1–15 s)
+- Hide bar out of combat: the bar only shows after you take damage or hit an entity (1–15 s)
 
 **Render Coords Waypoint**
 - Render chests waypoints: when the server says `The key unlocks a nearby vault at X, Y, Z!`, a "Chest" waypoint appears there through walls, colored by distance (0–60 s, 0 = until you change worlds)
